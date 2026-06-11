@@ -88,14 +88,15 @@ p {
 }
 
 .nav-logo img {
-  height: 50px;
-  transition: height 0.4s ease;
+  height: 60px;
+  transition: all 0.4s ease;
   border-radius: 50%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.25);
 }
 
 .nav.scrolled .nav-logo img {
-  height: 40px;
+  height: 44px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .nav-logo-text {
@@ -257,18 +258,6 @@ p {
   padding: 2rem;
 }
 
-.hero-logo-wrapper {
-  display: inline-block;
-  margin-bottom: 2rem;
-  animation: gentle-float 6s ease-in-out infinite;
-}
-
-.hero-logo {
-  display: block;
-  width: clamp(140px, 22vw, 200px);
-  border-radius: 50%;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(255, 255, 255, 0.3);
-}
 
 @keyframes gentle-float {
   0%, 100% { transform: translateY(0); }
