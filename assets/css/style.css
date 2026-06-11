@@ -257,12 +257,23 @@ p {
   padding: 2rem;
 }
 
-.hero-logo {
-  width: clamp(140px, 22vw, 200px);
+.hero-logo-wrapper {
+  display: inline-block;
   margin-bottom: 2rem;
+  padding: 1.2rem;
   border-radius: 50%;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
   animation: gentle-float 6s ease-in-out infinite;
+}
+
+.hero-logo {
+  display: block;
+  width: clamp(130px, 20vw, 180px);
+  border-radius: 50%;
 }
 
 @keyframes gentle-float {
