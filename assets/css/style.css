@@ -195,7 +195,7 @@ p {
   background-size: cover;
   background-position: center 40%;
   background-repeat: no-repeat;
-  filter: brightness(0.55) saturate(1.1);
+  filter: brightness(0.8) saturate(1.15);
   transition: transform 8s ease-out;
 }
 
@@ -209,10 +209,10 @@ p {
   inset: 0;
   background:
     linear-gradient(180deg,
-      rgba(74, 25, 66, 0.4) 0%,
-      rgba(0, 0, 0, 0.15) 40%,
-      rgba(0, 0, 0, 0.3) 70%,
-      rgba(74, 25, 66, 0.6) 100%
+      rgba(74, 25, 66, 0.25) 0%,
+      rgba(0, 0, 0, 0.05) 35%,
+      rgba(0, 0, 0, 0.15) 65%,
+      rgba(74, 25, 66, 0.5) 100%
     );
   pointer-events: none;
   z-index: 1;
@@ -260,20 +260,14 @@ p {
 .hero-logo-wrapper {
   display: inline-block;
   margin-bottom: 2rem;
-  padding: 1.2rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
   animation: gentle-float 6s ease-in-out infinite;
 }
 
 .hero-logo {
   display: block;
-  width: clamp(130px, 20vw, 180px);
+  width: clamp(140px, 22vw, 200px);
   border-radius: 50%;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(255, 255, 255, 0.3);
 }
 
 @keyframes gentle-float {
