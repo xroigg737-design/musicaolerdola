@@ -131,8 +131,8 @@ p {
 .nav-links a {
   text-decoration: none;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--warm-white);
   position: relative;
   transition: color 0.3s ease;
