@@ -88,15 +88,15 @@ p {
 }
 
 .nav-logo img {
-  height: 85px;
+  height: 140px;
   transition: all 0.4s ease;
   border-radius: 50%;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), 0 0 0 3px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.3);
   animation: gentle-float 6s ease-in-out infinite;
 }
 
 .nav.scrolled .nav-logo img {
-  height: 50px;
+  height: 55px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
   animation: none;
 }
