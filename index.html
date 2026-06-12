@@ -245,11 +245,7 @@
           </div>
         </div>
       </div>
-      <form class="contact-form reveal reveal-delay-2" action="https://formsubmit.co/musicaolerdola@outlook.com" method="POST">
-        <input type="hidden" name="_subject" value="Nou missatge des del web musicaolerdola.cat">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none">
+      <form class="contact-form reveal reveal-delay-2" action="api/send-mail.php" method="POST">
         <div class="form-group">
           <label for="nom">Nom</label>
           <input type="text" id="nom" name="nom" required placeholder="El teu nom">

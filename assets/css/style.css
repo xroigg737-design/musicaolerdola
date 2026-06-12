@@ -33,6 +33,21 @@ body {
   overflow-x: hidden;
 }
 
+body::after {
+  content: 'En construcció....';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 700;
+  color: rgba(74, 25, 66, 0.08);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 9999;
+  letter-spacing: 0.1em;
+}
+
 /* ── Typography ── */
 
 h1, h2, h3, h4 {

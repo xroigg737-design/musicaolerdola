@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Contact form (FormSubmit.co) ──
+  // ── Contact form ──
   const form = document.querySelector('.contact-form');
   if (form) {
     form.addEventListener('submit', e => {
@@ -78,16 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        body: new FormData(form)
       })
-      .then(res => {
-        if (res.ok) {
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
           btn.textContent = 'Missatge enviat! ✓';
           btn.style.background = 'var(--green-vine)';
           form.reset();
         } else {
-          btn.textContent = 'Error — torna-ho a provar';
+          btn.textContent = data.error || 'Error — torna-ho a provar';
           btn.style.background = '#c0392b';
         }
       })
