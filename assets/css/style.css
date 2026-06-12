@@ -33,19 +33,59 @@ body {
   overflow-x: hidden;
 }
 
-body::after {
-  content: 'En construcció....';
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-30deg);
-  font-size: clamp(3rem, 10vw, 7rem);
-  font-weight: 700;
-  color: rgba(74, 25, 66, 0.08);
-  white-space: nowrap;
+/* ── WIP Banner ── */
+.wip-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
   pointer-events: none;
-  z-index: 9999;
-  letter-spacing: 0.1em;
+}
+
+.wip-banner-inner {
+  background: repeating-linear-gradient(
+    45deg,
+    #f5a623,
+    #f5a623 20px,
+    #1a1a1a 20px,
+    #1a1a1a 40px
+  );
+  padding: 6px 0;
+  width: 140%;
+  transform: rotate(-15deg);
+  animation: wip-pulse 2s ease-in-out infinite;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.wip-banner-text {
+  background: rgba(0, 0, 0, 0.85);
+  color: #f5a623;
+  text-align: center;
+  padding: 12px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.wip-banner-text span {
+  animation: wip-blink 1.2s step-end infinite;
+}
+
+@keyframes wip-pulse {
+  0%, 100% { opacity: 0.92; }
+  50% { opacity: 1; }
+}
+
+@keyframes wip-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* ── Typography ── */
