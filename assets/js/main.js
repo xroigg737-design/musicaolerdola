@@ -66,20 +66,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Contact form (placeholder) ──
+  // ── Contact form (FormSubmit.co) ──
   const form = document.querySelector('.contact-form');
   if (form) {
     form.addEventListener('submit', e => {
       e.preventDefault();
       const btn = form.querySelector('.btn-submit');
       const originalText = btn.textContent;
-      btn.textContent = 'Missatge enviat!';
-      btn.style.background = 'var(--green-vine)';
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-        form.reset();
-      }, 3000);
+      btn.textContent = 'Enviant...';
+      btn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(res => {
+        if (res.ok) {
+          btn.textContent = 'Missatge enviat! ✓';
+          btn.style.background = 'var(--green-vine)';
+          form.reset();
+        } else {
+          btn.textContent = 'Error — torna-ho a provar';
+          btn.style.background = '#c0392b';
+        }
+      })
+      .catch(() => {
+        btn.textContent = 'Error — torna-ho a provar';
+        btn.style.background = '#c0392b';
+      })
+      .finally(() => {
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+        }, 4000);
+      });
     });
   }
 });
