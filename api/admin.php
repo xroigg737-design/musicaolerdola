@@ -13,9 +13,11 @@ require_once __DIR__ . '/lib/preguntes.php';
 
 $cfg = aamo_config();
 
+// El panell es visita a /resultats, que nginx reescriu cap a /api/admin.php.
+// La galeta ha de tenir àmbit '/' o el navegador no la tornaria a enviar mai.
 session_set_cookie_params([
     'lifetime' => 0,
-    'path'     => '/api/',
+    'path'     => '/',
     'secure'   => !empty($_SERVER['HTTPS']),
     'httponly' => true,
     'samesite' => 'Strict',
@@ -258,7 +260,7 @@ header('X-Robots-Tag: noindex, nofollow');
   <p>Associació Amics de la Música d'Olèrdola</p>
   <div class="accions">
     <a class="btn btn-or" href="?csv=1">&#11123; Descarrega CSV (Excel)</a>
-    <a class="btn" href="../enquesta.html" target="_blank">Veure l'enquesta</a>
+    <a class="btn" href="/enquesta" target="_blank" rel="noopener">Veure l'enquesta</a>
     <a class="btn" href="?surt=1">Sortir</a>
   </div>
 </header>

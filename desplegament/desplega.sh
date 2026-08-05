@@ -23,6 +23,12 @@ if [[ ! -f "$CLAU" ]]; then
   exit 1
 fi
 
+# El directori api/ del servidor va quedar amb propietari root quan s'hi va
+# instal·lar composer a mà; sense això rsync no hi pot escriure.
+echo "▸ Preparant permisos al servidor"
+ssh -i "$CLAU" "$SERVIDOR" \
+  "sudo mkdir -p $DESTI && sudo chown -R ubuntu:ubuntu $DESTI"
+
 echo "▸ Sincronitzant $ORIGEN → $SERVIDOR:$DESTI"
 
 rsync -avz --human-readable \
@@ -31,7 +37,7 @@ rsync -avz --human-readable \
   --exclude='api/vendor/' \
   --exclude='api/config.php' \
   --exclude='api/config.local.php' \
-  --exclude='dades/' \
+  --exclude='/dades/' \
   --exclude='*.jsonl' \
   --exclude='__pycache__/' \
   -e "ssh -i $CLAU" \
