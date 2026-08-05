@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquesta de participació — Amics de la Música d'Olèrdola</title>
+  <meta name="description" content="Digues-nos quina música t'agrada, quan pots venir i com t'agradaria participar. Són 2 minuts i ens ajudarà molt.">
+  <meta name="theme-color" content="#4a1942">
+  <meta property="og:title" content="Enquesta de participació — Amics de la Música d'Olèrdola">
+  <meta property="og:description" content="Són 2 minuts i ens ajudarà a programar la música que vols escoltar a Olèrdola.">
+  <meta property="og:image" content="assets/img/logo-transparent.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://musicaolerdola.cat/enquesta">
+  <link rel="icon" type="image/png" href="assets/img/logo-fons-transparent.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/enquesta.css">
+</head>
+<body>
+
+  <!-- ── Capçalera ── -->
+  <header class="enq-nav">
+    <a href="index.html" aria-label="Tornar al web">
+      <img src="assets/img/logo-circle.png" alt="Amics de la Música d'Olèrdola">
+    </a>
+    <div class="enq-nav-titol">
+      Enquesta de participació
+      <small>Amics de la Música d'Olèrdola</small>
+    </div>
+  </header>
+
+  <!-- ── Barra de progrés ── -->
+  <div class="progres oculta" id="progres">
+    <div class="progres-pista">
+      <div class="progres-plena" id="progres-plena"></div>
+    </div>
+    <div class="progres-text">
+      <span id="progres-pas">Pas 1</span>
+      <span id="progres-pct">0%</span>
+    </div>
+  </div>
+
+  <main>
+    <div class="avis avis-info oculta" id="avis-recuperat">
+      Hem recuperat les respostes que havies començat.
+      <button type="button" id="btn-descarta">Començar de nou</button>
+    </div>
+
+    <div class="avis avis-error oculta" id="avis-error" role="alert"></div>
+
+    <form id="formulari" novalidate>
+      <!-- Camp trampa per a robots: les persones no el veuen mai -->
+      <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"
+           aria-hidden="true">
+        <label for="web">No omplis aquest camp</label>
+        <input type="text" id="web" name="web" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="obertura" value="">
+
+      <div id="pantalles">
+        <!-- ── Portada ── -->
+        <section class="pantalla activa portada" data-pantalla="0">
+          <div class="ornament">&#9835;</div>
+          <h1>La teva veu fa la melodia</h1>
+          <p class="sotstitol" id="intro-text"></p>
+
+          <blockquote class="cita-portada">
+            La música ens ensenya que, igual que les notes d'una melodia, cada
+            persona és única, però juntes podem crear alguna cosa extraordinària.
+            <footer>Participa-hi i ajuda'ns a fer-la sonar!</footer>
+          </blockquote>
+
+          <div class="dades-info">
+            <span>&#9201; 2 minuts</span>
+            <span>&#9989; 15 preguntes</span>
+            <span>&#128274; Anònima si vols</span>
+          </div>
+
+          <button type="button" class="btn btn-principal btn-gran" id="btn-comenca">
+            Comença l'enquesta &#9834;
+          </button>
+
+          <p style="font-size:.85rem;color:var(--text-muted);margin-top:18px">
+            Pots deixar-la a mitges: les respostes es guarden al teu dispositiu
+            i les recuperaràs quan tornis.
+          </p>
+        </section>
+        <!-- La resta de pantalles es generen des d'assets/js/enquesta.js -->
+      </div>
+    </form>
+
+    <noscript>
+      <div class="avis avis-error">
+        Aquesta enquesta necessita JavaScript per funcionar. Si no el pots
+        activar, escriu-nos a
+        <a href="mailto:musicaolerdola@outlook.com">musicaolerdola@outlook.com</a>
+        i te la farem arribar en paper.
+      </div>
+    </noscript>
+  </main>
+
+  <footer class="enq-peu">
+    <p>
+      Associació Amics de la Música d'Olèrdola &middot;
+      <a href="index.html">Web</a> &middot;
+      <a href="privacitat.html">Política de privacitat</a>
+    </p>
+    <p>Esperem escampar la música arreu del municipi!</p>
+  </footer>
+
+  <script src="assets/js/enquesta.js"></script>
+</body>
+</html>

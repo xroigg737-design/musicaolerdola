@@ -1,0 +1,26 @@
+# ── Credencials ────────────────────────────────────────────────────────────
+# La configuració real viu a /var/www/musicaolerdola-privat/config.php al
+# servidor. Aquests noms no han d'arribar mai a git.
+api/config.php
+api/config.local.php
+*.env
+
+# ── Dependències ───────────────────────────────────────────────────────────
+# Es reinstal·len amb: cd api && composer install
+api/vendor/
+
+# ── Dades de l'enquesta i missatges de contacte ────────────────────────────
+# A producció viuen fora del webroot; aquí per si mai se'n baixa una còpia.
+# Atenció: la barra inicial ho limita a l'arrel, per no excloure
+# assets/dades/preguntes.json, que SÍ que ha d'anar a git.
+/dades/
+*.jsonl
+*.csv
+
+# ── Brossa del sistema ─────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*~
+__pycache__/
+*.pyc

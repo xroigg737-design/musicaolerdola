@@ -726,6 +726,66 @@ section {
   text-align: left;
 }
 
+/* ── Crida a l'enquesta de participació ── */
+.join-enquesta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+  margin: 0 0 2.5rem;
+  padding: 1.8rem 2rem;
+  background: linear-gradient(135deg, rgba(200, 168, 78, 0.13), rgba(200, 168, 78, 0.04));
+  border: 1px solid rgba(200, 168, 78, 0.4);
+  border-radius: 12px;
+}
+
+.join-enquesta-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--purple-dark);
+  margin: 0 0 0.4rem;
+}
+
+.join-enquesta-text p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.btn-enquesta {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--purple-dark);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 18px rgba(200, 168, 78, 0.35);
+}
+
+.btn-enquesta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(200, 168, 78, 0.45);
+}
+
+@media (max-width: 700px) {
+  .join-enquesta {
+    flex-direction: column;
+    gap: 1.3rem;
+    text-align: center;
+    padding: 1.5rem 1.3rem;
+  }
+  .btn-enquesta { width: 100%; text-align: center; }
+}
+
 .join-benefit {
   display: flex;
   align-items: flex-start;
@@ -946,6 +1006,14 @@ section {
 .footer-copy {
   font-size: 0.85rem;
   opacity: 0.5;
+}
+
+.footer-versio {
+  display: inline-block;
+  margin-left: 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
 }
 
 /* ── Scroll Animations ── */

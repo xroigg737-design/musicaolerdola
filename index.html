@@ -12,6 +12,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://musicaolerdola.cat">
   <link rel="icon" type="image/png" href="assets/img/logo-fons-transparent.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4a1942">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -213,6 +215,17 @@
           </div>
         </div>
       </div>
+      <div class="join-enquesta reveal">
+        <div class="join-enquesta-text">
+          <h3>&#9835; Abans de res, digue'ns què vols escoltar</h3>
+          <p>
+            Estem preparant la programació i la teva opinió és la brúixola. Contesta
+            l'enquesta de participació &mdash; són <strong>2 minuts</strong> &mdash; i, si vols,
+            aprofita per inscriure't com a soci/a al final.
+          </p>
+        </div>
+        <a href="enquesta.html" class="btn-enquesta">Respondre l'enquesta</a>
+      </div>
       <a href="#contacte" class="btn-join reveal">Vull ser soci</a>
     </div>
   </section>
@@ -252,6 +265,11 @@
         </div>
       </div>
       <form class="contact-form reveal reveal-delay-2" action="api/send-mail.php" method="POST">
+        <!-- Camp trampa per a robots: les persones no el veuen mai -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+          <label for="web">No omplis aquest camp</label>
+          <input type="text" id="web" name="web" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-group">
           <label for="nom">Nom</label>
           <input type="text" id="nom" name="nom" required placeholder="El teu nom">
@@ -280,9 +298,11 @@
         <a href="#olerdola">Olèrdola</a>
         <a href="#fes-te-soci">Fes-te soci</a>
         <a href="#contacte">Contacte</a>
+        <a href="enquesta.html">Enquesta</a>
+        <a href="privacitat.html">Privacitat</a>
       </div>
       <div class="footer-divider"></div>
-      <p class="footer-copy">&copy; 2025 Associació Amics de la Música d'Olèrdola. Tots els drets reservats.</p>
+      <p class="footer-copy">&copy; 2026 Associació Amics de la Música d'Olèrdola. Tots els drets reservats. <span class="footer-versio">v1.1.0</span></p>
     </div>
   </footer>
 
