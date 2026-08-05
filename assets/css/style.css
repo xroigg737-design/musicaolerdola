@@ -48,47 +48,28 @@ body {
   overflow: hidden;
 }
 
+/* La banda que travessa el hero. El moviment el fa el GIF, no el CSS. */
 .wip-banner-inner {
-  background: repeating-linear-gradient(
-    45deg,
-    #f5a623,
-    #f5a623 20px,
-    #1a1a1a 20px,
-    #1a1a1a 40px
-  );
-  background-size: 56.57px 56.57px;
-  animation: wip-stripes 1s linear infinite;
-  padding: 6px 0;
   width: 150%;
   transform: rotate(-15deg);
-  box-shadow: 0 4px 30px rgba(0,0,0,0.6);
+  filter: drop-shadow(0 6px 26px rgba(0, 0, 0, 0.65));
 }
 
-.wip-banner-text {
-  background: rgba(0, 0, 0, 0.9);
-  color: #f5a623;
-  text-align: center;
-  padding: 14px 0;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.8rem, 5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(245, 166, 35, 0.5);
+.wip-banner-inner img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
-.wip-banner-text span {
-  animation: wip-blink 1s step-end infinite;
-}
+/* Versió fixa per a qui té la reducció de moviment activada al sistema.
+   Els selectors porten el pare perquè guanyin en especificitat a la regla
+   «.wip-banner-inner img» de més amunt; si no, el display:block la sobreescriu
+   i es veurien les dues imatges alhora. */
+.wip-banner-inner .wip-fix { display: none; }
 
-@keyframes wip-stripes {
-  0% { background-position: 0 0; }
-  100% { background-position: 56.57px 0; }
-}
-
-@keyframes wip-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .wip-banner-inner .wip-gif { display: none; }
+  .wip-banner-inner .wip-fix { display: block; }
 }
 
 /* ── Typography ── */

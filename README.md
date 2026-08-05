@@ -4,7 +4,7 @@ Web de l'**Associació Amics de la Música d'Olèrdola** i enquesta de participa
 
 - **Producció:** https://musicaolerdola.cat
 - **Servidor:** AWS EC2 `ubuntu@13.63.16.49` (`i-xr.duckdns.org`), nginx + PHP 8.3-FPM
-- **Versió actual:** v1.1.0
+- **Versió actual:** v1.1.1
 
 ---
 
@@ -16,9 +16,10 @@ Web de l'**Associació Amics de la Música d'Olèrdola** i enquesta de participa
 4. [Veure els resultats de l'enquesta](#veure-els-resultats-de-lenquesta)
 5. [Canviar les preguntes](#canviar-les-preguntes)
 6. [El QR i el cartell](#el-qr-i-el-cartell)
-7. [Desplegar](#desplegar)
-8. [Seguretat i dades](#seguretat-i-dades)
-9. [Estructura de fitxers](#estructura-de-fitxers)
+7. [El bàner «En construcció»](#el-bàner-en-construcció)
+8. [Desplegar](#desplegar)
+9. [Seguretat i dades](#seguretat-i-dades)
+10. [Estructura de fitxers](#estructura-de-fitxers)
 
 ---
 
@@ -211,6 +212,31 @@ imprimir els cartells.
 
 ---
 
+## El bàner «En construcció»
+
+La banda diagonal que travessa la portada és un **GIF animat**, generat també
+amb una eina pròpia:
+
+```bash
+python3 eines/genera-gif-construccio.py
+```
+
+Crea `assets/img/en-construccio.gif` (63 KB, 12 fotogrames, bucle perfecte:
+les franges es desplacen exactament un període) i `en-construccio.png`, la
+versió fixa que es mostra a qui té activada la **reducció de moviment** al
+sistema operatiu.
+
+Per canviar-ne el text o els colors, edita les constants de dalt del fitxer i
+torna a executar-lo. El programa es verifica a si mateix: com que el GIF fa
+servir `disposal=1` (cada fotograma només desa el tros que canvia, i això
+gairebé li redueix el pes a la meitat), en acabar torna a llegir el fitxer i
+comprova que els 12 fotogrames es recomponen exactament.
+
+**Per treure el bàner** quan el web es consideri publicat, esborra el bloc
+`<div class="wip-banner">` d'`index.html`.
+
+---
+
 ## Desplegar
 
 ```bash
@@ -278,7 +304,8 @@ O més senzill: entra a `/resultats` i prem **Descarrega CSV**.
       (ara apunten a `#`).
 - [ ] Omplir les xifres de la secció «L'Associació» (concerts, socis, anys), que
       ara mostren símbols.
-- [ ] Treure el bàner «En construcció» quan el web es consideri publicat.
+- [ ] Treure el bàner «En construcció» quan el web es consideri publicat
+      (esborrar el `<div class="wip-banner">` d'`index.html`).
 
 ---
 
@@ -297,7 +324,7 @@ assets/
   js/main.js                    Menú, animacions i formulari de contacte
   js/enquesta.js                Assistent de l'enquesta
   dades/preguntes.json          ← LES PREGUNTES (font única)
-  img/                          Logotips, hero, icones i el QR
+  img/                          Logotips, hero, icones, el QR i el GIF del bàner
 
 api/
   send-mail.php                 Formulari de contacte
@@ -312,6 +339,7 @@ api/
 
 eines/
   genera-qr.py                  Generador de QR propi, amb autoverificació
+  genera-gif-construccio.py     GIF animat del bàner «En construcció»
   prova-correu.php              Diagnòstic de l'SMTP
 
 desplegament/
