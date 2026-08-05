@@ -4,7 +4,7 @@ Web de l'**Associació Amics de la Música d'Olèrdola** i enquesta de participa
 
 - **Producció:** https://musicaolerdola.cat
 - **Servidor:** AWS EC2 `ubuntu@13.63.16.49` (`i-xr.duckdns.org`), nginx + PHP 8.3-FPM
-- **Versió actual:** v1.1.1
+- **Versió actual:** v1.1.2
 
 ---
 
@@ -214,8 +214,24 @@ imprimir els cartells.
 
 ## El bàner «En construcció»
 
-La banda diagonal que travessa la portada és un **GIF animat**, generat també
-amb una eina pròpia:
+> **Ara mateix està retirat**: el web ja no el mostra. Tot (el GIF, els estils i
+> el generador) es conserva per si algun dia el vols tornar a posar.
+
+**Per tornar-lo a posar**, afegeix aquest bloc a `index.html`, just abans de
+`<section class="hero" id="inici">`:
+
+```html
+<div class="wip-banner" role="img" aria-label="Web en construcció">
+  <div class="wip-banner-inner">
+    <img class="wip-gif" src="assets/img/en-construccio.gif" alt="En construcció">
+    <img class="wip-fix" src="assets/img/en-construccio.png" alt="En construcció">
+  </div>
+</div>
+```
+
+Els estils ja hi són a `assets/css/style.css` (`.wip-banner`), no cal tocar-los.
+
+La banda diagonal és un **GIF animat**, generat amb una eina pròpia:
 
 ```bash
 python3 eines/genera-gif-construccio.py
@@ -231,9 +247,6 @@ torna a executar-lo. El programa es verifica a si mateix: com que el GIF fa
 servir `disposal=1` (cada fotograma només desa el tros que canvia, i això
 gairebé li redueix el pes a la meitat), en acabar torna a llegir el fitxer i
 comprova que els 12 fotogrames es recomponen exactament.
-
-**Per treure el bàner** quan el web es consideri publicat, esborra el bloc
-`<div class="wip-banner">` d'`index.html`.
 
 ---
 
@@ -304,8 +317,7 @@ O més senzill: entra a `/resultats` i prem **Descarrega CSV**.
       (ara apunten a `#`).
 - [ ] Omplir les xifres de la secció «L'Associació» (concerts, socis, anys), que
       ara mostren símbols.
-- [ ] Treure el bàner «En construcció» quan el web es consideri publicat
-      (esborrar el `<div class="wip-banner">` d'`index.html`).
+- [x] Treure el bàner «En construcció» — fet a la v1.1.2.
 
 ---
 

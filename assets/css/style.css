@@ -33,7 +33,9 @@ body {
   overflow-x: hidden;
 }
 
-/* ── WIP Banner ── */
+/* ── Bàner «En construcció» ──
+   Retirat del web. Els estils es conserven perquè tornar-lo a posar sigui
+   només afegir el bloc HTML altra vegada (vegeu README.md). */
 .wip-banner {
   position: fixed;
   top: 0;
