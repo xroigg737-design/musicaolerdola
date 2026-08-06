@@ -4,7 +4,7 @@ Web de l'**Associació Amics de la Música d'Olèrdola** i enquesta de participa
 
 - **Producció:** https://musicaolerdola.cat
 - **Servidor:** AWS EC2 `ubuntu@13.63.16.49` (`i-xr.duckdns.org`), nginx + PHP 8.3-FPM
-- **Versió actual:** v1.1.2
+- **Versió actual:** v1.1.3
 
 ---
 
@@ -16,10 +16,11 @@ Web de l'**Associació Amics de la Música d'Olèrdola** i enquesta de participa
 4. [Veure els resultats de l'enquesta](#veure-els-resultats-de-lenquesta)
 5. [Canviar les preguntes](#canviar-les-preguntes)
 6. [El QR i el cartell](#el-qr-i-el-cartell)
-7. [El bàner «En construcció»](#el-bàner-en-construcció)
-8. [Desplegar](#desplegar)
-9. [Seguretat i dades](#seguretat-i-dades)
-10. [Estructura de fitxers](#estructura-de-fitxers)
+7. [La imatge de la portada](#la-imatge-de-la-portada)
+8. [El bàner «En construcció»](#el-bàner-en-construcció)
+9. [Desplegar](#desplegar)
+10. [Seguretat i dades](#seguretat-i-dades)
+11. [Estructura de fitxers](#estructura-de-fitxers)
 
 ---
 
@@ -212,6 +213,35 @@ imprimir els cartells.
 
 ---
 
+## La imatge de la portada
+
+El fons del hero es prepara amb una eina, a partir de l'original quadrat:
+
+```bash
+python3 eines/genera-hero.py                      # busca ~/Downloads/olerdola/Best.jpeg
+python3 eines/genera-hero.py ruta/a/la/nova.jpg   # o li passes una altra
+```
+
+Genera dues versions, perquè l'original és quadrat i el hero no:
+
+| Fitxer | Format | Quan es fa servir |
+|---|---|---|
+| `hero-olerdola.jpg` | 16:9, 1680×945, 347 KB | Pantalles amples |
+| `hero-olerdola-mobil.jpg` | 3:4, 900×1200, 224 KB | Mòbils en vertical |
+
+Els retalls estan triats a mà i escrits a la taula `RETALLS` de l'eina: el
+panoràmic talla al 35 % d'alçada (deixa el campanar sencer sense menjar-se el
+teclat del piano) i el vertical al 40 % d'amplada (manté el violoncel i la
+glicina). El CSS tria l'un o l'altre amb una consulta de mitjans a `.hero-bg`.
+
+**Per canviar la imatge**, passa la nova a l'eina i torna a desplegar. Si canvia
+la composició, potser caldrà retocar els dos percentatges de `RETALLS`.
+
+> L'original de 2048×2048 no és al repositori (pesa 3,2 MB i no cal per servir
+> el web). **Guarda'l en un lloc segur** si el vols poder reenquadrar.
+
+---
+
 ## El bàner «En construcció»
 
 > **Ara mateix està retirat**: el web ja no el mostra. Tot (el GIF, els estils i
@@ -352,6 +382,7 @@ api/
 eines/
   genera-qr.py                  Generador de QR propi, amb autoverificació
   genera-gif-construccio.py     GIF animat del bàner «En construcció»
+  genera-hero.py                Retalla i optimitza la imatge de la portada
   prova-correu.php              Diagnòstic de l'SMTP
 
 desplegament/

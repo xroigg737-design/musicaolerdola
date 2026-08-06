@@ -237,12 +237,22 @@ p {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../img/hero-olerdola.png');
+  /* Imatge ja retallada en 16:9 per eines/genera-hero.py, per no carregar
+     píxels que després es descartarien. */
+  background-image: url('../img/hero-olerdola.jpg');
   background-size: cover;
-  background-position: center 40%;
+  background-position: center center;
   background-repeat: no-repeat;
   filter: brightness(0.8) saturate(1.15);
   transition: transform 8s ease-out;
+}
+
+/* Als mòbils en vertical, la versió 3:4: si hi posàvem la panoràmica, el
+   «cover» se'n menjava els costats i hi desapareixien el violoncel i la posta. */
+@media (max-width: 820px) and (orientation: portrait) {
+  .hero-bg {
+    background-image: url('../img/hero-olerdola-mobil.jpg');
+  }
 }
 
 .hero:hover .hero-bg {
