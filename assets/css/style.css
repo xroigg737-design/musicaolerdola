@@ -231,19 +231,32 @@ p {
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  background: #1a1010;
+  /* El que es veu mentre la foto encara no ha arribat: el cel i la posta de sol
+     de la mateixa imatge, perquè l'entrada no sigui un rectangle negre. */
+  background: linear-gradient(180deg, #7fa8c9 0%, #e8b976 62%, #6b4a2f 100%);
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
   /* Imatge ja retallada en 16:9 per eines/genera-hero.py, per no carregar
-     píxels que després es descartarien. */
+     píxels que després es descartarien. La primera línia és el recanvi per als
+     navegadors sense image-set(); la segona els dona el WebP, que és la meitat
+     de pes. */
   background-image: url('../img/hero-olerdola.jpg');
+  background-image: image-set(
+    url('../img/hero-olerdola.webp') type('image/webp'),
+    url('../img/hero-olerdola.jpg') type('image/jpeg')
+  );
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  filter: brightness(0.8) saturate(1.15);
+  /* La foto es veu a plena llum: abans anava a brightness(0.8) i la posta de
+     sol quedava apagada. El poc de contrast i saturació que hi afegim aquí és
+     per rematar el realçat que ja porta el fitxer; el text de la portada no
+     depèn d'aquest enfosquiment, perquè el llegeix contra els degradats de
+     .hero::after. */
+  filter: brightness(1.06) contrast(1.08) saturate(1.16);
   transition: transform 8s ease-out;
 }
 
@@ -252,6 +265,10 @@ p {
 @media (max-width: 820px) and (orientation: portrait) {
   .hero-bg {
     background-image: url('../img/hero-olerdola-mobil.jpg');
+    background-image: image-set(
+      url('../img/hero-olerdola-mobil.webp') type('image/webp'),
+      url('../img/hero-olerdola-mobil.jpg') type('image/jpeg')
+    );
   }
 }
 
@@ -259,15 +276,20 @@ p {
   transform: scale(1.03);
 }
 
+/* Dos vels, i només on fan falta: a dalt perquè s'hi llegeixi el menú, i a baix
+   per al «Descobreix» i per lligar amb la secció morada que ve després. Enmig
+   la foto queda neta —abans hi havia un vel negre a tota l'alçada que era el
+   que feia que la portada es veiés apagada. */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
     linear-gradient(180deg,
-      rgba(74, 25, 66, 0.25) 0%,
-      rgba(0, 0, 0, 0.05) 35%,
-      rgba(0, 0, 0, 0.15) 65%,
+      rgba(26, 12, 24, 0.45) 0%,
+      rgba(26, 12, 24, 0.12) 16%,
+      rgba(26, 12, 24, 0) 34%,
+      rgba(26, 12, 24, 0) 68%,
       rgba(74, 25, 66, 0.5) 100%
     );
   pointer-events: none;
@@ -282,10 +304,14 @@ p {
   z-index: 2;
 }
 
+/* Les notes suraven sobre una foto enfosquida; ara que la portada és clara, un
+   blanc al 7 % desapareixia contra el cel. L'ombra és el que les fa visibles
+   sense haver-les d'opacar. */
 .note {
   position: absolute;
-  color: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.22);
   font-size: 3rem;
+  text-shadow: 0 2px 10px rgba(40, 20, 40, 0.35);
   animation: float-note 20s linear infinite;
 }
 

@@ -4,7 +4,7 @@ Web de l'**Associació Amics de la Música d'Olèrdola** i enquesta de participa
 
 - **Producció:** https://musicaolerdola.cat
 - **Servidor:** AWS EC2 `ubuntu@13.63.16.49` (`i-xr.duckdns.org`), nginx + PHP 8.3-FPM
-- **Versió actual:** v1.1.3
+- **Versió actual:** v1.1.4
 
 ---
 
@@ -222,20 +222,42 @@ python3 eines/genera-hero.py                      # busca ~/Downloads/olerdola/B
 python3 eines/genera-hero.py ruta/a/la/nova.jpg   # o li passes una altra
 ```
 
-Genera dues versions, perquè l'original és quadrat i el hero no:
+Genera dos retalls, perquè l'original és quadrat i el hero no, i de cada retall
+en desa dos fitxers: el WebP, que és el que acaba servint el navegador, i el
+JPEG de recanvi.
 
 | Fitxer | Format | Quan es fa servir |
 |---|---|---|
-| `hero-olerdola.jpg` | 16:9, 1680×945, 347 KB | Pantalles amples |
-| `hero-olerdola-mobil.jpg` | 3:4, 900×1200, 224 KB | Mòbils en vertical |
+| `hero-olerdola.webp` / `.jpg` | 16:9, 1920×1080, 368 / 513 KB | Pantalles amples |
+| `hero-olerdola-mobil.webp` / `.jpg` | 3:4, 1080×1440, 262 / 371 KB | Mòbils en vertical |
 
 Els retalls estan triats a mà i escrits a la taula `RETALLS` de l'eina: el
 panoràmic talla al 35 % d'alçada (deixa el campanar sencer sense menjar-se el
 teclat del piano) i el vertical al 40 % d'amplada (manté el violoncel i la
-glicina). El CSS tria l'un o l'altre amb una consulta de mitjans a `.hero-bg`.
+glicina). El CSS tria l'un o l'altre amb una consulta de mitjans a `.hero-bg`, i
+dins de cada regla tria WebP o JPEG amb `image-set()`. El `<head>` de
+`index.html` en fa un `preload` amb el mateix `media`, perquè la foto no s'hagi
+d'esperar que arribi el full d'estils.
 
 **Per canviar la imatge**, passa la nova a l'eina i torna a desplegar. Si canvia
 la composició, potser caldrà retocar els dos percentatges de `RETALLS`.
+
+### La brillantor de la portada
+
+El realçat es fa en dos llocs, i el que convé tocar és el segon:
+
+- **A l'eina** (`ENFOCAMENT`, `CONTRAST`, `SATURACIO`): enfoca el fullatge que
+  es perd en reduir la foto i li dona una mica de cos. Canviar-ho vol dir
+  tornar a generar els fitxers, o sigui que es deixa suau.
+- **Al CSS**, que és on s'ajusta de veritat: `.hero-bg` porta
+  `filter: brightness(1.06) contrast(1.08) saturate(1.16)` i `.hero::after` posa
+  els vels només a dalt (per llegir-hi el menú) i a baix (per al «Descobreix» i
+  per lligar amb la secció morada). Fins a la v1.1.3 hi havia un
+  `brightness(0.8)` i un vel negre a tota l'alçada: era el que feia que la
+  portada es veiés apagada.
+
+El color de fons de `.hero` és el degradat cel-posta que es veu mentre la foto
+encara no ha carregat.
 
 > L'original de 2048×2048 no és al repositori (pesa 3,2 MB i no cal per servir
 > el web). **Guarda'l en un lloc segur** si el vols poder reenquadrar.
