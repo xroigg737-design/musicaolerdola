@@ -1,0 +1,513 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Enquesta de participació — Amics de la Música d'Olèrdola
+   Reutilitza la paleta i la tipografia del web principal.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --purple-dark: #4a1942;
+  --purple: #6b2d6b;
+  --purple-light: #8e4585;
+  --gold: #c8a84e;
+  --gold-light: #e8d48b;
+  --green-vine: #4a7c3f;
+  --cream: #faf8f4;
+  --warm-white: #fffef9;
+  --text-dark: #2a1a2a;
+  --text-muted: #6b5a6b;
+  --border-light: rgba(106, 45, 107, 0.14);
+  --red: #a5281b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Capçalera ────────────────────────────────────────────────────────────── */
+.enq-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(74, 25, 66, 0.97);
+  backdrop-filter: blur(8px);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 20px rgba(74, 25, 66, 0.25);
+}
+
+.enq-nav img { height: 46px; width: auto; display: block; }
+
+.enq-nav-titol {
+  color: var(--gold-light);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+}
+
+.enq-nav-titol small {
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Barra de progrés ─────────────────────────────────────────────────────── */
+.progres {
+  position: sticky;
+  top: 70px;
+  z-index: 49;
+  background: var(--cream);
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.progres.oculta { display: none; }
+
+.progres-pista {
+  height: 6px;
+  background: rgba(106, 45, 107, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.progres-plena {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--purple), var(--gold));
+  border-radius: 4px;
+  transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progres-text {
+  max-width: 760px;
+  margin: 7px auto 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ── Contenidor ───────────────────────────────────────────────────────────── */
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+
+.pantalla { display: none; animation: entra 0.45s ease both; }
+.pantalla.activa { display: block; }
+
+@keyframes entra {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Portada ──────────────────────────────────────────────────────────────── */
+.portada { text-align: center; padding: 20px 0 10px; }
+
+.portada .ornament {
+  font-size: 2.4rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.portada h1 {
+  font-size: clamp(2rem, 6vw, 2.9rem);
+  margin: 0 0 8px;
+  color: var(--purple-dark);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.portada .sotstitol {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin: 0 auto 26px;
+  max-width: 520px;
+}
+
+.cita-portada {
+  background: var(--warm-white);
+  border-left: 4px solid var(--gold);
+  border-radius: 6px;
+  padding: 22px 26px;
+  margin: 0 0 26px;
+  text-align: left;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--purple-dark);
+  box-shadow: 0 4px 18px rgba(74, 25, 66, 0.06);
+}
+
+.cita-portada footer {
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.dades-info {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.dades-info span { display: flex; align-items: center; gap: 6px; }
+
+/* ── Passos i preguntes ───────────────────────────────────────────────────── */
+.pas-cap { margin-bottom: 24px; }
+
+.pas-cap h2 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin: 0 0 4px;
+  color: var(--purple-dark);
+  font-weight: 700;
+}
+
+.pas-cap p { margin: 0; color: var(--text-muted); }
+
+.pregunta {
+  background: var(--warm-white);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 12px rgba(74, 25, 66, 0.04);
+}
+
+.pregunta-cap {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.pregunta-icona {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.pregunta h3 {
+  margin: 0;
+  font-size: 1.22rem;
+  font-weight: 600;
+  color: var(--purple-dark);
+  line-height: 1.35;
+}
+
+.pregunta .ajuda {
+  margin: 4px 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ── Opcions ──────────────────────────────────────────────────────────────── */
+.opcions { display: flex; flex-direction: column; gap: 9px; }
+
+.opcio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+  border: 1.5px solid var(--border-light);
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--cream);
+  transition: border-color 0.18s, background 0.18s, transform 0.12s;
+  user-select: none;
+  font-size: 1.02rem;
+}
+
+.opcio:hover { border-color: var(--purple-light); background: #fff; }
+.opcio:active { transform: scale(0.99); }
+
+.opcio input { position: absolute; opacity: 0; pointer-events: none; }
+
+.marca {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border: 2px solid var(--purple-light);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+.opcio.multi .marca { border-radius: 5px; }
+.opcio.unica .marca { border-radius: 50%; }
+
+.marca::after {
+  content: '';
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.opcio.multi .marca::after {
+  width: 11px;
+  height: 6px;
+  border-left: 2.5px solid #fff;
+  border-bottom: 2.5px solid #fff;
+  transform: rotate(-45deg) scale(0.5) translate(1px, -2px);
+}
+
+.opcio.unica .marca::after {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.opcio input:checked ~ .marca {
+  background: var(--purple);
+  border-color: var(--purple);
+}
+
+.opcio.multi input:checked ~ .marca::after {
+  opacity: 1;
+  transform: rotate(-45deg) scale(1) translate(1px, -2px);
+}
+
+.opcio.unica input:checked ~ .marca::after { opacity: 1; transform: scale(1); }
+
+.opcio:has(input:checked) {
+  border-color: var(--gold);
+  background: linear-gradient(90deg, rgba(200, 168, 78, 0.12), rgba(200, 168, 78, 0.04));
+}
+
+.opcio input:focus-visible ~ .marca {
+  box-shadow: 0 0 0 4px rgba(200, 168, 78, 0.35);
+}
+
+/* ── Comentari plegable ───────────────────────────────────────────────────── */
+.comentari { margin-top: 14px; }
+
+.comentari-obre {
+  background: none;
+  border: 0;
+  padding: 4px 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--purple);
+  border-bottom: 1px dotted var(--purple-light);
+}
+
+.comentari-obre:hover { color: var(--gold); border-color: var(--gold); }
+.comentari-obre.amagat { display: none; }
+
+.comentari-camp { display: none; }
+.comentari-camp.oberta { display: block; }
+
+textarea, input[type="text"], input[type="tel"], input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border-light);
+  border-radius: 8px;
+  background: var(--cream);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-dark);
+  resize: vertical;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(200, 168, 78, 0.18);
+}
+
+textarea { min-height: 86px; }
+
+label.camp {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.camp-grup { margin-bottom: 16px; }
+
+/* ── Consentiment ─────────────────────────────────────────────────────────── */
+.consent {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  background: var(--cream);
+  border: 1.5px solid var(--border-light);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.consent:has(input:checked) { border-color: var(--green-vine); }
+.consent input { position: absolute; opacity: 0; pointer-events: none; }
+.consent .marca { border-radius: 5px; margin-top: 2px; }
+.consent input:checked ~ .marca { background: var(--green-vine); border-color: var(--green-vine); }
+.consent .marca::after {
+  width: 11px; height: 6px;
+  border-left: 2.5px solid #fff;
+  border-bottom: 2.5px solid #fff;
+  transform: rotate(-45deg) scale(0.5) translate(1px, -2px);
+}
+.consent input:checked ~ .marca::after {
+  opacity: 1;
+  transform: rotate(-45deg) scale(1) translate(1px, -2px);
+}
+.consent a { color: var(--purple); }
+
+/* ── Botons de navegació ──────────────────────────────────────────────────── */
+.navegacio {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 26px;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 1.05rem;
+  padding: 14px 30px;
+  border-radius: 40px;
+  border: 1.5px solid var(--purple);
+  background: transparent;
+  color: var(--purple);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.btn:hover { background: rgba(106, 45, 107, 0.08); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-principal {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+  box-shadow: 0 6px 20px rgba(106, 45, 107, 0.28);
+}
+
+.btn-principal:hover {
+  background: var(--purple-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(106, 45, 107, 0.34);
+}
+
+.btn-gran { width: 100%; padding: 16px; font-size: 1.15rem; }
+
+.btn-or {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #3a1230;
+  font-weight: 600;
+}
+
+.btn-or:hover { background: var(--gold-light); border-color: var(--gold-light); }
+
+/* ── Missatges ────────────────────────────────────────────────────────────── */
+.avis {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+}
+
+.avis-error { background: #fdecea; color: var(--red); border-left: 4px solid var(--red); }
+.avis-info  { background: rgba(200, 168, 78, 0.14); color: #6b5310; border-left: 4px solid var(--gold); }
+.avis.oculta { display: none; }
+
+.avis-info button {
+  background: none;
+  border: 0;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+}
+
+/* ── Pantalla final ───────────────────────────────────────────────────────── */
+.final { text-align: center; padding: 40px 0; }
+
+.final-icona {
+  font-size: 4rem;
+  color: var(--gold);
+  animation: batec 2.4s ease-in-out infinite;
+}
+
+@keyframes batec {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.12); }
+}
+
+.final h2 {
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  color: var(--purple-dark);
+  margin: 10px 0 12px;
+}
+
+.final p { color: var(--text-muted); max-width: 480px; margin: 0 auto 12px; }
+
+.final .accions-final {
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.final .accions-final a { text-decoration: none; display: inline-block; }
+
+/* ── Peu ──────────────────────────────────────────────────────────────────── */
+.enq-peu {
+  text-align: center;
+  padding: 26px 20px 34px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.enq-peu a { color: var(--purple); }
+
+/* ── Responsiu ────────────────────────────────────────────────────────────── */
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  main { padding: 22px 15px 50px; }
+  .pregunta { padding: 18px 16px; }
+  .progres { top: 66px; }
+  .navegacio { flex-direction: column-reverse; }
+  .navegacio .btn { width: 100%; }
+  .enq-nav img { height: 40px; }
+  .cita-portada { padding: 18px 20px; font-size: 1.05rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}

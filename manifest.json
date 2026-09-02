@@ -1,6 +1,8 @@
 {
   "name": "Amics de la Música d'Olèrdola",
   "short_name": "AAMO",
+  "description": "Associació Amics de la Música d'Olèrdola — promovem la música al cor del Penedès.",
+  "lang": "ca",
   "icons": [
     {
       "src": "assets/img/icon-192x192.png",

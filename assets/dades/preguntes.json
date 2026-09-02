@@ -1,0 +1,277 @@
+{
+  "versio": 1,
+  "titol": "Enquesta de participació",
+  "intro": "La teva opinió ens ajudarà a construir una associació activa, oberta i participativa. Són 2 minuts.",
+  "passos": [
+    {
+      "titol": "Comencem per tu",
+      "subtitol": "Volem saber qui ens respon i què esperes de l'associació",
+      "preguntes": [
+        {
+          "id": "q1",
+          "num": 1,
+          "icona": "👥",
+          "text": "Qui sou?",
+          "tipus": "multiple",
+          "opcions": [
+            "Alumne de l'escola de piano",
+            "Pare/Mare d'alumne",
+            "Familiar",
+            "Veí/Veïna del municipi",
+            "Altres"
+          ],
+          "comentari": "Comentaris"
+        },
+        {
+          "id": "q2",
+          "num": 2,
+          "icona": "🎯",
+          "text": "Què us agradaria que fes l'Associació?",
+          "tipus": "multiple",
+          "opcions": [
+            "Concerts d'alumnes",
+            "Concerts professionals de cambra",
+            "Concerts professionals d'orquestra",
+            "Tallers",
+            "Sortides a museus, auditoris, etc.",
+            "Activitats culturals"
+          ],
+          "comentari": "Comentaris"
+        }
+      ]
+    },
+    {
+      "titol": "Quina música t'agrada",
+      "subtitol": "Ens ajuda a triar la programació i els gèneres",
+      "preguntes": [
+        {
+          "id": "q3",
+          "num": 3,
+          "icona": "🎻",
+          "text": "Tipus de concerts preferits?",
+          "tipus": "multiple",
+          "opcions": [
+            "Clàssica",
+            "Cinema",
+            "Jazz",
+            "Pop",
+            "Tradicional",
+            "Òpera"
+          ],
+          "comentari": "Comentaris"
+        },
+        {
+          "id": "q4",
+          "num": 4,
+          "icona": "🎭",
+          "text": "Activitats preferides i a les quals assistiries?",
+          "tipus": "multiple",
+          "opcions": [
+            "Concerts",
+            "Tallers musicals per a nens",
+            "Conferències o xerrades sobre música i compositors",
+            "Concerts de cambra",
+            "Masterclass de professors de conservatori"
+          ],
+          "comentari": "Altres suggeriments"
+        }
+      ]
+    },
+    {
+      "titol": "Quan et va bé",
+      "subtitol": "Per programar els actes quan hi pugui venir més gent",
+      "preguntes": [
+        {
+          "id": "q5",
+          "num": 5,
+          "icona": "🗓️",
+          "text": "Amb quina freqüència t'agradaria que es programessin actes?",
+          "tipus": "multiple",
+          "opcions": [
+            "Només per dates especials (Nadal, fi de curs)",
+            "Mensual",
+            "Cada 2 mesos",
+            "Trimestral",
+            "4 a l'any",
+            "6 a l'any"
+          ],
+          "comentari": "Altres propostes"
+        },
+        {
+          "id": "q6",
+          "num": 6,
+          "icona": "📅",
+          "text": "Millor dia?",
+          "tipus": "multiple",
+          "opcions": [
+            "Només entre setmana",
+            "Divendres tarda",
+            "Dissabte al matí",
+            "Dissabte tarda",
+            "Diumenge",
+            "Indiferent"
+          ],
+          "comentari": "Comentaris"
+        },
+        {
+          "id": "q7",
+          "num": 7,
+          "icona": "⏰",
+          "text": "Quin és el teu millor horari per assistir als actes?",
+          "tipus": "multiple",
+          "opcions": [
+            "10:00 - 12:00 h",
+            "12:00 - 13:30 h",
+            "17:00 - 18:30 h",
+            "18:30 - 20:00 h",
+            "20:00 - 21:30 h"
+          ],
+          "comentari": "Comentaris"
+        }
+      ]
+    },
+    {
+      "titol": "Com hi vols participar",
+      "subtitol": "Des de venir-hi com a públic fins a donar-nos un cop de mà",
+      "preguntes": [
+        {
+          "id": "q8",
+          "num": 8,
+          "icona": "🙋",
+          "text": "Voldríeu i podríeu participar en els actes que prepari l'Associació?",
+          "tipus": "multiple",
+          "opcions": [
+            "Sí, en cada acte",
+            "De tant en tant",
+            "Només algun acte",
+            "Només d'assistent",
+            "Només aniria a concerts",
+            "Només aniria a concerts dels alumnes de l'escola"
+          ],
+          "comentari": "Altres respostes"
+        },
+        {
+          "id": "q9",
+          "num": 9,
+          "icona": "🤝",
+          "text": "Podríeu ajudar en la preparació dels actes? En què ajudaries?",
+          "tipus": "multiple",
+          "opcions": [
+            "Organització i preparació d'actes",
+            "Fotografia",
+            "Xarxes socials",
+            "Venda d'entrades",
+            "No puc ajudar, però assistiré als actes"
+          ],
+          "comentari": "Comentaris"
+        },
+        {
+          "id": "q13",
+          "num": 13,
+          "icona": "🎫",
+          "text": "Quins avantatges voldríeu tenir com a membres de l'Associació?",
+          "tipus": "multiple",
+          "opcions": [
+            "Descomptes",
+            "Reserva d'entrades",
+            "Activitats exclusives",
+            "Participar en les decisions",
+            "Informació"
+          ],
+          "comentari": "Comentaris"
+        },
+        {
+          "id": "q14",
+          "num": 14,
+          "icona": "📣",
+          "text": "Com t'agradaria que et comuniquéssim els actes?",
+          "tipus": "multiple",
+          "opcions": [
+            "WhatsApp",
+            "E-mail",
+            "Instagram",
+            "Facebook",
+            "Cartells"
+          ],
+          "comentari": "Comentaris"
+        }
+      ]
+    },
+    {
+      "titol": "Fer-se soci",
+      "subtitol": "Ens ajuda a dimensionar la quota i el preu de les entrades",
+      "preguntes": [
+        {
+          "id": "q10",
+          "num": 10,
+          "icona": "❤️",
+          "text": "Us faríeu socis?",
+          "tipus": "unica",
+          "opcions": [
+            "Sí",
+            "Probablement",
+            "No ho sé",
+            "No"
+          ],
+          "comentari": "Comentaris"
+        },
+        {
+          "id": "q11",
+          "num": 11,
+          "icona": "💳",
+          "text": "Quina quota anual estaríeu disposats a pagar?",
+          "tipus": "unica",
+          "opcions": [
+            "10 €",
+            "15 €",
+            "20 €",
+            "25 €",
+            "30 € o més"
+          ],
+          "comentari": "Comentaris"
+        },
+        {
+          "id": "q12",
+          "num": 12,
+          "icona": "🎟️",
+          "text": "Preu de l'entrada dels concerts?",
+          "tipus": "unica",
+          "opcions": [
+            "Gratuït",
+            "3 €",
+            "5 €",
+            "8 €",
+            "10 € o més"
+          ],
+          "comentari": "Comentaris"
+        },
+        {
+          "id": "q15",
+          "num": 15,
+          "icona": "💡",
+          "text": "Idees finals",
+          "ajuda": "Afegeix comentaris, idees o suggeriments que creguis oportuns",
+          "tipus": "text",
+          "opcions": [],
+          "comentari": null
+        }
+      ]
+    }
+  ],
+  "collaboracio": {
+    "titol": "Vols formar-ne part?",
+    "subtitol": "Aquest últim pas és totalment opcional. Només cal omplir-lo si vols fer-te soci/a o donar-nos un cop de mà.",
+    "cita": "La música és molt més que un art: és educació, és emoció, és amistat i és cultura.",
+    "id": "collaboracio",
+    "text": "M'agradaria col·laborar com:",
+    "opcions": [
+      "Inscriure'm com a soci/a",
+      "Voluntari/ària en la preparació d'actes",
+      "Organització i preparació diversa",
+      "Xarxes socials",
+      "Venda d'entrades",
+      "Patrocinis i cerca de patrocinadors",
+      "Altres"
+    ]
+  }
+}

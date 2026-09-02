@@ -11,21 +11,27 @@
   <meta property="og:image" content="assets/img/logo-transparent.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://musicaolerdola.cat">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/logo-fons-transparent.png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4a1942">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- La foto de la portada és el primer que es veu: la demanem ja des del
+       <head> perquè no s'hagi d'esperar que el navegador llegeixi el CSS.
+       El «media» fa que cada aparell es baixi només el seu retall. -->
+  <link rel="preload" as="image" href="assets/img/hero-olerdola.webp"
+        type="image/webp" media="(min-width: 821px), (orientation: landscape)">
+  <link rel="preload" as="image" href="assets/img/hero-olerdola-mobil.webp"
+        type="image/webp" media="(max-width: 820px) and (orientation: portrait)">
 </head>
 <body>
 
   <!-- ── Navegació ── -->
   <nav class="nav">
     <a href="#" class="nav-logo">
-      <img src="assets/img/logo-transparent.png" alt="Logo AAMO">
+      <img src="assets/img/logo-circle.png" alt="Logo AAMO">
     </a>
     <ul class="nav-links">
       <li><a href="#associacio">L'Associació</a></li>
@@ -33,7 +39,6 @@
       <li><a href="#olerdola">Olèrdola</a></li>
       <li><a href="#fes-te-soci">Fes-te soci</a></li>
       <li><a href="#contacte">Contacte</a></li>
-      <li class="nav-version">v1.6.0</li>
     </ul>
     <div class="nav-hamburger" aria-label="Obrir menú">
       <span></span>
@@ -43,10 +48,16 @@
   </nav>
 
   <!-- ── Hero ── -->
+  <!-- El bàner «En construcció» s'ha retirat. Per tornar-lo a posar, mira
+       README.md → «El bàner En construcció». -->
+
   <section class="hero" id="inici">
     <div class="hero-bg"></div>
     <div class="hero-particles"></div>
-    <a href="#associacio" class="btn-hero">Descobreix-nos</a>
+    <div class="hero-content">
+      <a href="#associacio" class="btn-hero">Descobreix-nos</a>
+    </div>
+    <div class="hero-scroll">Descobreix</div>
   </section>
 
   <!-- ── L'Associació ── -->
@@ -208,6 +219,17 @@
           </div>
         </div>
       </div>
+      <div class="join-enquesta reveal">
+        <div class="join-enquesta-text">
+          <h3>&#9835; Abans de res, digue'ns què vols escoltar</h3>
+          <p>
+            Estem preparant la programació i la teva opinió és la brúixola. Contesta
+            l'enquesta de participació &mdash; són <strong>2 minuts</strong> &mdash; i, si vols,
+            aprofita per inscriure't com a soci/a al final.
+          </p>
+        </div>
+        <a href="enquesta.html" class="btn-enquesta">Respondre l'enquesta</a>
+      </div>
       <a href="#contacte" class="btn-join reveal">Vull ser soci</a>
     </div>
   </section>
@@ -225,7 +247,7 @@
           <div class="contact-item-icon">&#128231;</div>
           <div>
             <h4>Correu electrònic</h4>
-            <p><a href="mailto:info@musicaolerdola.cat">info@musicaolerdola.cat</a></p>
+            <p><a href="mailto:musicaolerdola@outlook.com">musicaolerdola@outlook.com</a></p>
           </div>
         </div>
         <div class="contact-item">
@@ -246,7 +268,12 @@
           </div>
         </div>
       </div>
-      <form class="contact-form reveal reveal-delay-2">
+      <form class="contact-form reveal reveal-delay-2" action="api/send-mail.php" method="POST">
+        <!-- Camp trampa per a robots: les persones no el veuen mai -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+          <label for="web">No omplis aquest camp</label>
+          <input type="text" id="web" name="web" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-group">
           <label for="nom">Nom</label>
           <input type="text" id="nom" name="nom" required placeholder="El teu nom">
@@ -275,9 +302,11 @@
         <a href="#olerdola">Olèrdola</a>
         <a href="#fes-te-soci">Fes-te soci</a>
         <a href="#contacte">Contacte</a>
+        <a href="enquesta.html">Enquesta</a>
+        <a href="privacitat.html">Privacitat</a>
       </div>
       <div class="footer-divider"></div>
-      <p class="footer-copy">&copy; 2025 Associació Amics de la Música d'Olèrdola. Tots els drets reservats.</p>
+      <p class="footer-copy">&copy; 2026 Associació Amics de la Música d'Olèrdola. Tots els drets reservats. <span class="footer-versio">v1.1.4</span></p>
     </div>
   </footer>
 

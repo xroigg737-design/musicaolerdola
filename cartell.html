@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartell de l'enquesta — Amics de la Música d'Olèrdola</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="assets/img/logo-fons-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-dark: #4a1942;
+      --purple: #6b2d6b;
+      --gold: #c8a84e;
+      --gold-light: #e8d48b;
+      --cream: #faf8f4;
+      --warm-white: #fffef9;
+      --text-muted: #6b5a6b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #e8e4dd;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--purple-dark);
+      padding: 30px 16px 60px;
+    }
+
+    /* ── Barra d'eines (no s'imprimeix) ── */
+    .eines {
+      max-width: 210mm;
+      margin: 0 auto 22px;
+      background: var(--warm-white);
+      border: 1px solid rgba(106, 45, 107, 0.18);
+      border-radius: 10px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .eines p { color: var(--text-muted); font-size: 0.95rem; flex: 1; min-width: 240px; }
+    .eines strong { color: var(--purple-dark); }
+    .eines button, .eines a {
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 11px 22px;
+      border-radius: 40px;
+      border: 1.5px solid var(--purple);
+      background: var(--purple);
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .eines a { background: transparent; color: var(--purple); }
+    .eines button:hover { background: var(--purple-dark); }
+    .eines a:hover { background: rgba(106, 45, 107, 0.08); }
+
+    /* ── El cartell ── */
+    .cartell {
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      background: var(--warm-white);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+      padding: 18mm 16mm 14mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Sanefa superior i inferior */
+    .cartell::before,
+    .cartell::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 7mm;
+      background: linear-gradient(90deg, var(--purple-dark), var(--purple), var(--gold));
+    }
+    .cartell::before { top: 0; }
+    .cartell::after { bottom: 0; }
+
+    .logo { width: 30mm; height: auto; margin-bottom: 4mm; }
+
+    .entitat {
+      font-size: 12pt;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8mm;
+      line-height: 1.4;
+    }
+
+    h1 {
+      font-size: 34pt;
+      line-height: 1.1;
+      font-weight: 700;
+      color: var(--purple-dark);
+      margin-bottom: 4mm;
+    }
+
+    h1 em { font-style: italic; color: var(--purple); }
+
+    .subtitol {
+      font-size: 15pt;
+      color: var(--text-muted);
+      max-width: 150mm;
+      line-height: 1.5;
+      margin-bottom: 7mm;
+    }
+
+    .cita {
+      font-style: italic;
+      font-size: 13pt;
+      color: var(--purple);
+      max-width: 145mm;
+      line-height: 1.55;
+      padding: 5mm 8mm;
+      border-left: 1.2mm solid var(--gold);
+      border-right: 1.2mm solid var(--gold);
+      margin-bottom: 8mm;
+    }
+
+    /* ── Bloc del QR ── */
+    .qr-bloc {
+      background: var(--cream);
+      border: 0.6mm solid var(--gold);
+      border-radius: 4mm;
+      padding: 7mm 7mm 5mm;
+      margin-bottom: 6mm;
+    }
+
+    .qr-bloc img { width: 72mm; height: 72mm; display: block; }
+
+    .escaneja {
+      font-size: 15pt;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--purple-dark);
+      margin-top: 4mm;
+    }
+
+    .url {
+      font-size: 13pt;
+      color: var(--purple);
+      letter-spacing: 0.02em;
+      margin-top: 1.5mm;
+    }
+
+    .dades {
+      display: flex;
+      gap: 10mm;
+      justify-content: center;
+      font-size: 12.5pt;
+      color: var(--text-muted);
+      margin-bottom: 7mm;
+    }
+
+    .peu {
+      margin-top: auto;
+      font-size: 11pt;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .peu strong { color: var(--purple-dark); }
+
+    .notes {
+      position: absolute;
+      font-size: 40pt;
+      color: rgba(200, 168, 78, 0.16);
+      pointer-events: none;
+      user-select: none;
+    }
+    .n1 { top: 22mm; left: 10mm; transform: rotate(-14deg); }
+    .n2 { top: 44mm; right: 12mm; transform: rotate(12deg); font-size: 30pt; }
+    .n3 { bottom: 30mm; left: 14mm; transform: rotate(9deg); font-size: 34pt; }
+    .n4 { bottom: 52mm; right: 10mm; transform: rotate(-11deg); font-size: 26pt; }
+
+    /* ── Impressió ── */
+    @page { size: A4 portrait; margin: 0; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .eines { display: none !important; }
+      .cartell {
+        box-shadow: none;
+        width: 100%;
+        height: 100vh;
+        page-break-after: avoid;
+      }
+    }
+
+    @media (max-width: 230mm) {
+      .cartell { width: 100%; height: auto; min-height: 0; padding: 12mm 8mm; }
+      h1 { font-size: 26pt; }
+      .qr-bloc img { width: 60mm; height: 60mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="eines">
+    <p>
+      <strong>Cartell de l'enquesta.</strong> Prem «Imprimir» i tria A4 sense marges
+      (o «2 pàgines per full» si el vols en A5). El QR porta a
+      <strong>musicaolerdola.cat/enquesta</strong>.
+    </p>
+    <button type="button" onclick="window.print()">Imprimir</button>
+    <a href="assets/img/qr-enquesta.svg" download>Descarregar només el QR</a>
+  </div>
+
+  <div class="cartell">
+    <span class="notes n1" aria-hidden="true">&#9835;</span>
+    <span class="notes n2" aria-hidden="true">&#9833;</span>
+    <span class="notes n3" aria-hidden="true">&#9836;</span>
+    <span class="notes n4" aria-hidden="true">&#9834;</span>
+
+    <img class="logo" src="assets/img/logo-fons-transparent.png"
+         alt="Associació Amics de la Música d'Olèrdola">
+
+    <p class="entitat">Associació Amics de la<br>Música d'Olèrdola</p>
+
+    <h1>Quina música vols<br>escoltar a <em>Olèrdola</em>?</h1>
+
+    <p class="subtitol">
+      Estem preparant la programació i volem fer-la amb tu.
+      Digue'ns quins concerts t'agraden, quan pots venir i com t'agradaria participar.
+    </p>
+
+    <blockquote class="cita">
+      La música ens ensenya que, igual que les notes d'una melodia, cada persona
+      és única, però juntes podem crear alguna cosa extraordinària.
+    </blockquote>
+
+    <div class="qr-bloc">
+      <img src="assets/img/qr-enquesta.svg" alt="Codi QR de l'enquesta">
+      <p class="escaneja">Escaneja'm amb el mòbil</p>
+      <p class="url">musicaolerdola.cat/enquesta</p>
+    </div>
+
+    <div class="dades">
+      <span>&#9201; 2 minuts</span>
+      <span>&#9835; 15 preguntes</span>
+      <span>&#128274; Anònima si vols</span>
+    </div>
+
+    <p class="peu">
+      <strong>Participa-hi i ajuda'ns a fer-la sonar!</strong><br>
+      musicaolerdola@outlook.com &middot; musicaolerdola.cat
+    </p>
+  </div>
+
+</body>
+</html>
