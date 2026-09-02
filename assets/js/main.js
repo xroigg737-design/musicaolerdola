@@ -42,12 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Floating music notes ──
   const notesContainer = document.querySelector('.hero-particles');
   const noteChars = ['♪', '♫', '♬', '♩', '\u{1D160}'];
-  for (let i = 0; i < 15; i++) {
+  const isMobile = window.innerWidth <= 768;
+  const noteCount = isMobile ? 10 : 15;
+  for (let i = 0; i < noteCount; i++) {
     const note = document.createElement('div');
     note.classList.add('note');
     note.textContent = noteChars[i % noteChars.length];
-    note.style.left = `${(i / 15) * 100}%`;
-    note.style.fontSize = `${2 + (i % 4)}rem`;
+    note.style.left = `${(i / noteCount) * 100}%`;
+    const baseSize = isMobile ? 0.8 + (i % 3) * 0.3 : 2 + (i % 4);
+    note.style.fontSize = `${baseSize}rem`;
     note.style.animationDelay = `${(i * 1.3)}s`;
     note.style.animationDuration = `${15 + (i % 10)}s`;
     notesContainer.appendChild(note);

@@ -89,6 +89,9 @@ p {
 
 .nav-logo img {
   height: 240px;
+  width: 240px;
+  object-fit: cover;
+  background: white;
   transition: all 0.4s ease;
   border-radius: 50%;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.3);
@@ -233,9 +236,10 @@ p {
 
 .note {
   position: absolute;
-  color: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 3rem;
   animation: float-note 20s linear infinite;
+  text-shadow: 0 0 15px rgba(200, 168, 78, 0.5);
 }
 
 @keyframes float-note {
@@ -254,14 +258,6 @@ p {
     opacity: 0;
   }
 }
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  max-width: 800px;
-  padding: 2rem;
-}
-
 
 @keyframes gentle-float {
   0%, 100% { transform: translateY(0); }
@@ -303,6 +299,11 @@ p {
 }
 
 .btn-hero {
+  position: absolute;
+  z-index: 3;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: inline-block;
   padding: 1rem 2.5rem;
   font-family: 'Cormorant Garamond', serif;
@@ -322,37 +323,10 @@ p {
 
 .btn-hero:hover {
   background: var(--gold-light);
-  transform: translateY(-2px);
+  transform: translate(-50%, -50%) translateY(-2px);
   box-shadow: 0 8px 30px rgba(200, 168, 78, 0.4);
 }
 
-.hero-scroll {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  animation: pulse-down 2s ease-in-out infinite;
-  z-index: 3;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-}
-
-.hero-scroll::after {
-  content: '';
-  display: block;
-  width: 1px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.4);
-  margin: 0.5rem auto 0;
-}
-
-@keyframes pulse-down {
-  0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
-  50% { opacity: 1; transform: translateX(-50%) translateY(5px); }
-}
 
 /* ── Sections Common ── */
 
@@ -890,6 +864,17 @@ section {
   opacity: 0.5;
 }
 
+.nav-version {
+  font-size: 1.15rem;
+  opacity: 0.3;
+  color: var(--warm-white);
+  list-style: none;
+}
+
+.nav.scrolled .nav-version {
+  color: var(--text-muted);
+}
+
 /* ── Scroll Animations ── */
 
 .reveal {
@@ -931,6 +916,20 @@ section {
 }
 
 @media (max-width: 768px) {
+  .nav {
+    padding: 0.8rem 1.2rem;
+  }
+
+  .nav-logo img {
+    height: 70px;
+    width: 70px;
+  }
+
+  .nav.scrolled .nav-logo img {
+    height: 45px;
+    width: 45px;
+  }
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -959,6 +958,10 @@ section {
     display: flex;
   }
 
+  .nav-hamburger span {
+    background: var(--warm-white);
+  }
+
   .nav-hamburger.open span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -969,6 +972,25 @@ section {
 
   .nav-hamburger.open span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero-bg {
+    background-position: center center;
+  }
+
+  .note {
+    font-size: 1.5rem !important;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-hero {
+    top: 55%;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
   }
 
   .about-stats {
@@ -990,18 +1012,77 @@ section {
   .join-benefits {
     grid-template-columns: 1fr;
   }
+
+  .quote-text {
+    font-size: 1.2rem;
+  }
+
+  .quote-mark {
+    font-size: 3.5rem;
+  }
+
+  section {
+    padding: clamp(3rem, 6vw, 8rem) clamp(1.2rem, 4vw, 4rem);
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .join-benefit {
+    padding: 1rem;
+  }
+
+  .contact-item-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-links {
+    gap: 1rem;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2rem;
+  .nav-logo img {
+    height: 55px;
+    width: 55px;
   }
 
-  .hero-subtitle {
-    font-size: 1rem;
+  .nav.scrolled .nav-logo img {
+    height: 38px;
+    width: 38px;
   }
 
-  .nav {
+  .note {
+    font-size: 1.2rem !important;
+  }
+
+  .btn-hero {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  .about-text p:first-of-type::first-letter {
+    font-size: 2.8rem;
+  }
+
+  .activity-card {
+    padding: 1.8rem 1.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
     padding: 0.8rem 1rem;
   }
 }

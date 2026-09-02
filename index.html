@@ -11,7 +11,10 @@
   <meta property="og:image" content="assets/img/logo-transparent.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://musicaolerdola.cat">
-  <link rel="icon" type="image/png" href="assets/img/logo-fons-transparent.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4a1942">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -22,7 +25,7 @@
   <!-- ── Navegació ── -->
   <nav class="nav">
     <a href="#" class="nav-logo">
-      <img src="assets/img/logo-circle.png" alt="Logo AAMO">
+      <img src="assets/img/logo-transparent.png" alt="Logo AAMO">
     </a>
     <ul class="nav-links">
       <li><a href="#associacio">L'Associació</a></li>
@@ -30,6 +33,7 @@
       <li><a href="#olerdola">Olèrdola</a></li>
       <li><a href="#fes-te-soci">Fes-te soci</a></li>
       <li><a href="#contacte">Contacte</a></li>
+      <li class="nav-version">v1.6.0</li>
     </ul>
     <div class="nav-hamburger" aria-label="Obrir menú">
       <span></span>
@@ -42,10 +46,7 @@
   <section class="hero" id="inici">
     <div class="hero-bg"></div>
     <div class="hero-particles"></div>
-    <div class="hero-content">
-      <a href="#associacio" class="btn-hero">Descobreix-nos</a>
-    </div>
-    <div class="hero-scroll">Descobreix</div>
+    <a href="#associacio" class="btn-hero">Descobreix-nos</a>
   </section>
 
   <!-- ── L'Associació ── -->
